@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<title></title>
+</head>
+<body class="wallpaper">
+	
+		<div class="container">
+			<div class="row">
+                <h1 class="header">Extreme Harry Potter Trivia Game</h1>
+                <h2>Time Remaining<span class="time"></span></h2>
+                <h3>Score: <text id ="score">0</text></h3>
+                <p>Questions: <text id ="questions">0</text></p>
+
+            </div>
+            <div id = "question1"></div>
+            <div id = "option1"></div>
+            <div id = "option2"></div>
+            <div id = "option3"></div>
+            <div id = "answer 1"></div>
+            <div id = "disapear"><button type="button" class="buttonStart" onClick="start()" id="startGame">Start Game</button>
+            <div class="gameDiv">
+            </div>
+        </div>
+    <script>
+        var q1 = ["What do the 3 D's of aparition stand for?"]
+        var a1 = ["<button class= button1 onClick=q1a()>determination,destinaion,deliberation</button>",
+                    "<button class= button1 onClick=q1b()>des0tination,desperation,deportation</button>",
+                    "<button class= button1 onClick=q1c()>destination,desperation,debate</button>"];
+
+        var q2 = ["What is the name of the room Harry uses to teach Dumbledore's Army?"]
+        var a2 = ["<button class= button2 onClick=q1a()>The room of requirements</button>",
+                    "<button class= button2 onClick=q1b()>The potions classroon</button>",
+                    "<button class= button2 onClick=q1c()>Artifact Room</button>"];
+
+        var q3 = ["Who was the headmaster of Hogwarts when the Chamber of Secrets was opened for the first time?"]
+        var a3 = ["<button class= button3 onClick=q1a()>Albus Dumbledore</button>",
+                    "<button class= button3 onClick=q1b()>Phineas Nigellus</button>",
+                    "<button class= button3 onClick=q1c()>Armando Dippet</button>"];
+
+        var q4 = ["Where is the Slytherin common room located?"]
+        var a4 = ["<button class= button4 onClick=q1a()>Kitchens</button>",
+                    "<button class= button4 onClick=q1b()>Dungeon</button>",
+                    "<button class= button4 onClick=q1c()>Griffindor Tower</button>"];
+
+        var q5 = ["Which creatures pull the carriages that take students from the Hogwarts Express to the Castle?"]
+        var a5 = ["<button class= button5 onClick=q1a()>Unicorns</button>",
+                    "<button class= button5 onClick=q1b()>Dungeon</button>",
+                    "<button class= button5 onClick=q1c()>Griffindor Tower</button>"];
+
+        var q6 = ["Which Hogwarts professor was rumoured to be a duelling champion in their youth?"]
+        var a6 = ["<button class= button6 onClick=q1a()>Professor Snape</button>",
+                    "<button class= button6 onClick=q1b()>Professor Lockhart</button>",
+                    "<button class= button6 onClick=q1c()>Professor Flitwick</button>"];
+
+        var q7 = ["How many staircases does Hogwarts have?"]
+        var a7 = ["<button class= button7 onClick=q1a()>152</button>",
+                    "<button class= button7 onClick=q1b()>142</button>",
+                    "<button class= button7 onClick=q1c()>162</button>"];
+        var q1c = ["Correct","Correct","Correct","Correct","Correct","Correct","Correct",]
+        var q1a = ["Incorrect","Incorrect","Incorrect","Incorrect","Incorrect","Incorrect","Incorrect",]
+        var q1b = ["Incorrect","Incorrect","Incorrect","Incorrect","Incorrect","Incorrect","Incorrect",]
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="Assets/Javascript/app.js"></script>
+</body>
+</html>
