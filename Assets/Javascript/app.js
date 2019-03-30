@@ -1,112 +1,115 @@
+console.log("connected ***");
 $(document).ready(function () {
+    console.log("connected");
+    var questions = [
+        {
+            question: "What do the 3 D's of aparition stand for?",
+            answers: ['determination,destinaion,deliberation', 'destination,desperation,deportation', 'destination,deliberation,detonator'],
+            correctAnswer: "determination,destinaion,deliberation"
+        },
+        {
+            question: "Who was the headmaster of Hogwarts when the Chamber of Secrets was opened for the first time?",
+            answers: ['Albus Dumbledore', 'Phineas Nigellus', 'Armando Dippet'],
+            correctAnswer: "Armando Dippet"
+        },
+        {
+            question: "Which creatures pull the carriages that take students from the Hogwarts Express to the Castle?",
+            answers: ['Unicorns', 'Hypogriffs', 'Thestrals'],
+            correctAnswer: "Thestrals"
+        },
+        {
+            question: "Where is the Slytherin common room located?",
+            answers: ['Kitchens', 'Dungeons', 'Griffindor Tower'],
+            correctAnswer: "Dungeons"
+        },
+    ]
+    var counter = 120;
+    var correct = 0;
+    var incorrect = 0;
 
-    $("#startGame").on("click", function (event) {
-        console.log("Answer listener func()");
-        event.preventDefault();
-        $('#startGame').hide();
-        triviaQuestions();
-        countdownTimer();
-    }); 
-        var time = 0;{
-            setInterval(function () {
-                time ++
-                $('.time').text(time);
-            },1000);
+    function start() {
+        timer = setInterval(countdown, 1000);
+        $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>120</span> Seconds</h2>");
+        $('#start').remove();
+        for (var i = 0; i < questions.length; i++) {
+            $("#quiz-area").append("<h2>" + questions[i].question + "</h2>");
+            for (var j = 0; j < questions[i].answers.length; j++) {
+                console.log("inside inner for loop");
+                $("#quiz-area").append("<input type='radio' name='question-" + i +
+                    "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+            }
+
         }
 
-        function showQuestions(){
-            $('#countdown').show();
-            $('.triviaQuestions').show();
-            $('#game-done').show();
+        $("#quiz-area").append('<button id="done">Done</button>');
+    }
+    function countdown() {
+        counter--;
+        $("#counter-number").html(counter);
+        if (counter === 0) {
+            console.log("TIME UP");
+            done();
         }
+    }
+    function done() {
+        console.log("Done function");
+        $.each($("input[name='question-0']:checked"), function () {
+            if ($(this).val() === questions[0].correctAnswer) {
+                correct++;
+            }
+            else {
+                incorrect++;
+            }
+        });
+        $.each($("input[name='question-1']:checked"), function () {
+            if ($(this).val() === questions[0].correctAnswer) {
+                correct++;
+            }
+            else {
+                incorrect++;
+            }
+        });
+        result();
+    }
+    function result() {
 
-
-    $("body").on("click", ".reset-button", function (event) {
-        var correctNum = 0;
-        var incorrectNum = 0;
-        var counter = 0;
-        var time = 0;
-        var timerCounter = 30;
-        resetGame();
+    }
+    $(document).on("click", "#start", function () {
+        start();
     });
 
-    function clock() {
-        time = setInterval(thirty, 1000);
 
-        function thirty() {
-            if (timerCounter === 0) {
-                clearInterval(time);
-                questionTimeout();
-            }
-            if (timerCounter > 0) {
-                timerCounter--;
-            }
-            $(".timer").html(timerCounter);
-        }
-    }
+    //         "What do the 3 D's of aparition stand for?",
+    //         "What is the name of the room Harry uses to teach Dumbledore's Army?",
+    //         "Who was the headmaster of Hogwarts when the Chamber of Secrets was opened for the first time?",
+    //         "Where is the Slytherin common room located?",
+    //         "Which creatures pull the carriages that take students from the Hogwarts Express to the Castle?",
+    //         "Which Hogwarts professor was rumoured to be a duelling champion in their youth?",
+    //         "How many staircases does Hogwarts have?",
 
-    function correctAnswer() {
-        console.log("correctAnswer Func()");
-        correctNum++;
-        gameHTML = "<h2 class='text-center timer-p'>Time Remaining: <span class='timer'>" +
-            timerCounter + "</span></h2><h3 class='text-center'>Correct! The answer is: " +
-            correctArray[counter] + "</h3>";
-        $(".gameDiv").html(gameHTML);
-        setTimeout(wait, 2500);
-    }
+    //     ];
+    //     var answersArray = [
+    //         ["determination,destinaion,deliberation", "destination,desperation,deportation", "destination,deliberation,detonator"],
+    //         ["The room of requirements", "The potions classroon", "Artifact Room"],
+    //         ["Albus Dumbledore", "Phineas Nigellus", "Armando Dippet"],
+    //         ["Kitchens", "Dungeons", "Griffindor Tower"],
+    //         ["Unicorns", "Hypogriffs", "Thestrals"],
+    //         ["Professor Snape", "Professor Lockhart", "Professor Flitwick"],
+    //         ["152", "142", "162"],
 
-    function wrongAnswer() {
-        console.log("wrongAnswer func()");
-        incorrectNum++;
-        gameHTML = "<h2 class='text-center timer-p'>Time Remaining: <span class='timer'>" +
-            timerCounter + "</span></h2><h3 class='text-center'>Incorrect! The answer is: " +
-            correctArray[counter] + "</h3>";
-        $(".gameDiv").html(gameHTML);
-        setTimeout(wait, 2500);
-    }
-
-
-    function resetGame() {
-        console.log("Reset counter " + counter);
-        console.log("Reset incorrectNum " + incorrectNum);
-        console.log("Reset correctNum " + correctNum);
-        generateHTML();
-        clock();
-    }
-
-
-    var questionsArray = [
-        "What do the 3 D's of aparition stand for?",
-        "What is the name of the room Harry uses to teach Dumbledore's Army?",
-        "Who was the headmaster of Hogwarts when the Chamber of Secrets was opened for the first time?",
-        "Where is the Slytherin common room located?",
-        "Which creatures pull the carriages that take students from the Hogwarts Express to the Castle?",
-        "Which Hogwarts professor was rumoured to be a duelling champion in their youth?",
-        "How many staircases does Hogwarts have?",
-
-    ];
-    var answersArray = [
-        ["determination,destinaion,deliberation", "destination,desperation,deportation", "destination,deliberation,detonator"],
-        ["The room of requirements", "The potions classroon", "Artifact Room"],
-        ["Albus Dumbledore", "Phineas Nigellus", "Armando Dippet"],
-        ["Kitchens", "Dungeons", "Griffindor Tower"],
-        ["Unicorns", "Hypogriffs", "Thestrals"],
-        ["Professor Snape", "Professor Lockhart", "Professor Flitwick"],
-        ["152", "142", "162"],
-
-    ];
-    var correctArray = [
-        "C. determination,destinaion,deliberation",
-        "C.The room of requirements ",
-        "C. Armando Dippet",
-        "C. Dungeons",
-        "C. Thestrals",
-        "C. Professor Flitwick",
-        "C. 142",
-    ];
-    var correctNum = 0;
-    var incorrectNum = 0;
-    var counter = 0;
-    var time = 0;
-    var timerCounter = 30;
+    //     ];
+    //     var correctArray = [
+    //         "C. determination,destinaion,deliberation",
+    //         "C.The room of requirements ",
+    //         "C. Armando Dippet",
+    //         "C. Dungeons",
+    //         "C. Thestrals",
+    //         "C. Professor Flitwick",
+    //         "C. 142",
+    //     ];
+    //     var correctNum = 0;
+    //     var incorrectNum = 0;
+    //     var counter = 0;
+    //     var time = 0;
+    //     var timerCounter = 30;
 });
