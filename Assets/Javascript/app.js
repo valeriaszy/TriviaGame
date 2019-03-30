@@ -79,37 +79,4 @@ $(document).ready(function () {
     });
 
 
-    //         "What do the 3 D's of aparition stand for?",
-    //         "What is the name of the room Harry uses to teach Dumbledore's Army?",
-    //         "Who was the headmaster of Hogwarts when the Chamber of Secrets was opened for the first time?",
-    //         "Where is the Slytherin common room located?",
-    //         "Which creatures pull the carriages that take students from the Hogwarts Express to the Castle?",
-    //         "Which Hogwarts professor was rumoured to be a duelling champion in their youth?",
-    //         "How many staircases does Hogwarts have?",
-
-    //     ];
-    //     var answersArray = [
-    //         ["determination,destinaion,deliberation", "destination,desperation,deportation", "destination,deliberation,detonator"],
-    //         ["The room of requirements", "The potions classroon", "Artifact Room"],
-    //         ["Albus Dumbledore", "Phineas Nigellus", "Armando Dippet"],
-    //         ["Kitchens", "Dungeons", "Griffindor Tower"],
-    //         ["Unicorns", "Hypogriffs", "Thestrals"],
-    //         ["Professor Snape", "Professor Lockhart", "Professor Flitwick"],
-    //         ["152", "142", "162"],
-
-    //     ];
-    //     var correctArray = [
-    //         "C. determination,destinaion,deliberation",
-    //         "C.The room of requirements ",
-    //         "C. Armando Dippet",
-    //         "C. Dungeons",
-    //         "C. Thestrals",
-    //         "C. Professor Flitwick",
-    //         "C. 142",
-    //     ];
-    //     var correctNum = 0;
-    //     var incorrectNum = 0;
-    //     var counter = 0;
-    //     var time = 0;
-    //     var timerCounter = 30;
 });
